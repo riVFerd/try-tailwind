@@ -4,6 +4,9 @@ $(document).ready(function () {
         duration: 1000
     });
 
+    // Get the wishes from the server
+    getWishes();
+
     setInterval(function () {
         // Get the current date
         const currentDate = new Date();
@@ -25,7 +28,75 @@ $(document).ready(function () {
     }, 1000)
 });
 
+const RECEIVER_ID = 1; // Change this to the receiver's id
+
 function removeGreeting() {
     $("#greeting").css("top", "-500%");
     $("body").css("overflow", "auto");
+}
+
+function sendWish() {
+    const name = $("#sender-name").val();
+    const wish = $("#sender-wish").val();
+
+    // Send the wish to the server
+    $.ajax({
+        url: "/send-wish",
+        type: "POST",
+        data: {
+            receiver_id: RECEIVER_ID, // Change this to the receiver's id
+            name: name,
+            wish: wish
+        },
+        success: function (response) {
+            if (response.message === "success") {
+                alert("Your wish has been sent successfully!");
+
+                // Locally add wish to the list
+                $("#wish-list").append(`
+                    <div class="wish flex flex-col mb-2 pt-2">
+                        <p class="text-xl mb-2 font-semibold">${name}</p>
+                        <p class="">${wish}</p>
+                    </div>
+                `);
+
+                // Clear the input fields
+                $("#sender-name").val("");
+                $("#sender-wish").val("");
+            }
+        }
+    });
+}
+
+function getWishes() {
+    // Get the wishes from the server
+    $.ajax({
+        url: "/get-wishes",
+        type: "POST",
+        data: {
+            receiver_id: RECEIVER_ID // Change this to the receiver's id
+        },
+        success: function (response) {
+            if (response.message === "success") {
+                const wishes = response.wishes;
+
+                wishes.forEach(wish => {
+                    $("#wish-list").append(`
+                        <div class="wish flex flex-col mb-2 pt-2">
+                            <p class="text-xl mb-2 font-semibold">${wish.name}</p>
+                            <p class="">${wish.wish}</p>
+                        </div>
+                    `);
+                });
+            }
+        }
+    });
+}
+
+function closePopup() {
+    $("#popup").fadeOut();
+}
+
+function openPopup() {
+    $("#popup").fadeIn();
 }

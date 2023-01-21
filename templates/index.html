@@ -157,7 +157,7 @@
         </div>
     </div>
 
-    <div id="countdown" class="container text-center text-white h-[50vh] lg:h-screen flex flex-col justify-end bg-cover"
+    <div id="countdown" class="container text-center text-white h-[60vh] lg:h-screen flex flex-col justify-end bg-cover"
          style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url('https://source.unsplash.com/320x420/?{weeding}'); overflow: hidden">
         <h1 data-aos="zoom-in" class="bridegroom-name text-lg md:text-xl lg:text-2xl font-semibold">Counting down to the
             big day</h1>
@@ -206,8 +206,8 @@
                 berikut:</p>
         </div>
         <div data-aos="zoom-in" class="container flex justify-evenly">
-            <button class="bg-[#314248] p-4 rounded-xl text-white"><i class="fa-solid fa-gift fa-2xl"></i></button>
-            <button class="bg-[#314248] p-4 rounded-xl text-white"><i class="fa-solid fa-wallet fa-2xl"></i></button>
+            <button onclick="openPopup()" class="bg-[#314248] p-4 rounded-xl text-white"><i class="fa-solid fa-gift fa-2xl"></i></button>
+            <button onclick="openPopup()" class="bg-[#314248] p-4 rounded-xl text-white"><i class="fa-solid fa-wallet fa-2xl"></i></button>
         </div>
     </div>
 
@@ -218,14 +218,30 @@
             <p>Leave your message here</p>
         </div>
         <div class="h-px w-full bg-white mb-4"></div>
-        <div class="container flex flex-col justify-evenly items-center mt-12">
-            <input type="text" class="form-input text-black focus:outline-none" placeholder="Name">
-            <textarea class="form-input text-black focus:outline-none h-32 resize-none"
-                      placeholder="Write a message"></textarea>
-            <button class="bg-white text-black w-fit px-4 py-2 rounded">Send Wish</button>
+        <div class="container flex flex-col justify-evenly items-center mt-12 mb-8">
+            <input id="sender-name" type="text" class="form-input text-black focus:outline-none" placeholder="Name" required>
+            <textarea id="sender-wish" class="form-input text-black focus:outline-none h-32 resize-none"
+                      placeholder="Write a message" required></textarea>
+            <button class="bg-white text-black w-fit px-4 py-2 rounded" onclick="sendWish()">Send Wish</button>
         </div>
-        <div id="message-list">
+        <div id="wish-list" class="flex flex-col divide-y h-[50vh] xl:h-screen overflow-auto">
             <!-- Insert data from db here -->
+        </div>
+    </div>
+
+    <div id="footer" class="flex justify-center items-center h-[30vh]">
+        <p class="text-2xl">This is footer</p>
+    </div>
+</div>
+
+<!-- Pop up -->
+<div id="popup" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 hidden">
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-white rounded-xl">
+        <div class="absolute right-0 top-2 h-12">
+            <button onclick="closePopup()" class="mr-4"><i class="fa-solid fa-times fa-xl"></i></button>
+        </div>
+        <div class="flex flex-col justify-center items-center h-full">
+            <h1 class="text-2xl font-semibold">Content goes here</h1>
         </div>
     </div>
 </div>
