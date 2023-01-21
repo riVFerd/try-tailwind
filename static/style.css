@@ -1,0 +1,57 @@
+#root {
+    overflow: hidden;
+}
+
+#greeting {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url("https://source.unsplash.com/720x1080/?{weeding}");
+    background-size: cover;
+    top: 0;
+    transition: all 3s ease;
+    z-index: 999;
+}
+
+#main {
+    background: url("https://source.unsplash.com/720x1080/?{weeding}");
+    background-size: cover;
+}
+
+.bridegroom-name {
+    font-family: 'Playfair Display', serif;
+}
+
+.sub-text {
+    font-family: 'Caudex', serif;
+}
+
+.photo-section {
+    background-size: cover;
+    overflow: hidden;
+}
+
+.container {
+    min-width: 100%;
+}
+
+.main-wave {
+    filter: drop-shadow(0 -0.5rem 0 rgba(49, 66, 72, 0.4))
+}
+
+.wave-top {
+    filter: drop-shadow(0 0.4rem 0 rgba(255, 255, 255, 0.5));
+}
+
+.wave-bot {
+    filter: drop-shadow(0 -0.4rem 0 rgba(255, 255, 255, 0.5));
+
+}
+
+.bridegroom-photo {
+    box-shadow: 0 4px 10px black;
+}
+
+.form-input {
+    margin-bottom: 0.5rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+}

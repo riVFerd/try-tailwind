@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/bc63c5ed9f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caudex&display=swap" rel="stylesheet">
+    <title>Weedinger</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+<div id="root" class="container flex flex-col min-w-full">
+    <div id="greeting"
+         class="container fixed flex flex-col min-h-screen justify-between items-center py-20 bg-cover bg-no-repeat">
+        <div class="flex flex-col items-center w-1/2">
+            <p class="text-2xl text-white">Dear,</p>
+            <p class="text-2xl text-white font-bold">{{ name }}</p>
+            <p class="text-2xl text-white">You Are Invited!</p>
+        </div>
+
+        <div class="flex flex-col items-evenly text-center">
+            <p class="text-2xl text-white">Ngunduh Mantu</p>
+            <p class="bridegroom-name text-3xl text-white font-bold mb-4 mt-3">Dimas & Ajeng</p>
+            <button class="text-2xl bg-white px-16 py-1 rounded" onclick="removeGreeting()">Open Invitation</button>
+        </div>
+    </div>
+
+    <div id="main"
+         class="container flex flex-col min-h-screen justify-end items-center bg-cover bg-no-repeat">
+        <div class="flex flex-col items-evenly text-center">
+            <p class="text-2xl text-white">Ngunduh Mantu</p>
+            <p class="bridegroom-name text-3xl text-white font-bold mb-4 mt-3">Dimas & Ajeng</p>
+            <p class="text-2xl text-white">18 November 2022</p>
+        </div>
+        <svg class="main-wave relative top-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#314248" fill-opacity="1"
+                  d="M0,64L48,90.7C96,117,192,171,288,170.7C384,171,480,117,576,90.7C672,64,768,64,864,80C960,96,1056,128,1152,128C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+
+    <div id="surah" class="container flex flex-col items-center justify-evenly text-center h-96 px-8 text-white"
+         style="background: #314248">
+        <p data-aos="zoom-in" class="text-2xl"><i class="fa-regular fa-gem fa-2xl"></i></p>
+        <div data-aos="zoom-in">
+            <p class="mb-4">
+                “Dan di antara tanda-tanda kekuasaan Allah ialah diciptakan-Nya untukmu pasangan hidup dari jenismu
+                sendiri supaya kamu merasa tentram di samping-Nya dan dijadikan-Nya rasa kasih sayang di antara kamu.
+                Sesungguhnya yang demikian itu menjadi bukti kekuasaan Allah bagi kaum yang berfikir.“
+            </p>
+            <p>(QS. Ar- Rum 21)</p>
+        </div>
+    </div>
+
+    <div id="sub-main" class="container flex flex-col items-center text-center mb-4">
+        <svg class="relative bottom-4" style="filter: drop-shadow(0 0.5rem 0 rgba(49, 66, 72, 0.4))"
+             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#314248" fill-opacity="1"
+                  d="M0,64L48,90.7C96,117,192,171,288,170.7C384,171,480,117,576,90.7C672,64,768,64,864,80C960,96,1056,128,1152,128C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+        </svg>
+        <p style="font-family: 'Sacramento', cursive;" class="text-black text-4xl -translate-y-4">We Found Love</p>
+    </div>
+
+    <div data-aos="fade-right" data-aos-delay="200"
+         class="photo-section container flex flex-col justify-between text-center h-80 md:h-1/3 lg:h-1/2"
+         style="background: url('https://source.unsplash.com/1080x720/?{bride}')">
+        <svg class="wave-top relative bottom-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1"
+                  d="M0,64L48,90.7C96,117,192,171,288,170.7C384,171,480,117,576,90.7C672,64,768,64,864,80C960,96,1056,128,1152,128C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+        </svg>
+        <svg class="wave-bot relative top-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1"
+                  d="M0,64L48,90.7C96,117,192,171,288,170.7C384,171,480,117,576,90.7C672,64,768,64,864,80C960,96,1056,128,1152,128C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+
+    <div class="quote container text-center mb-4">
+        <p class="sub-text text-black text-xl px-8 my-4">“The highest happiness on earth is
+            the happiness of marriage.”</p>
+    </div>
+
+    <div data-aos="fade-left" data-aos-delay="200"
+         class="photo-section container flex flex-col justify-between text-center h-80 md:h-1/3 lg:h-1/2"
+         style="background: url('https://source.unsplash.com/1080x720/?{groom}')">
+        <svg class="wave-top relative bottom-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1"
+                  d="M0,64L48,90.7C96,117,192,171,288,170.7C384,171,480,117,576,90.7C672,64,768,64,864,80C960,96,1056,128,1152,128C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+        </svg>
+        <svg class="wave-bot relative top-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1"
+                  d="M0,64L48,90.7C96,117,192,171,288,170.7C384,171,480,117,576,90.7C672,64,768,64,864,80C960,96,1056,128,1152,128C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+
+    <div class="quote container text-center mb-4 md:-translate-y-4">
+        <p class="sub-text text-black text-xl px-8 my-4">“Being someone’s first love may be great, but to be their last
+            is beyond perfect.”</p>
+    </div>
+
+    <div class="bridegroom-section container flex flex-wrap justify-center md:justify-around text-center mt-6">
+        <div class="flex flex-col items-center w-3/4 md:w-2/6">
+            <div data-aos="fade-up" class="bridegroom-photo h-64 w-2/3 border-8"
+                 style="background-image: url('https://source.unsplash.com/240x360/?{groom}')"></div>
+            <div data-aos="zoom-in" class="mb-6">
+                <p class="bridegroom-name text-2xl font-semibold mt-8 mb-2">Dimas Bagas Setya Alam</p>
+                <p class="sub-text text-xl">Putra dari</p>
+                <p class="sub-text text-xl">Bapak Sugiarto</p>
+                <p class="sub-text text-xl">& Ibu Yuliwati</p>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="150" class="text-2xl mb-24">
+                <a href="https://www.instagram.com/rivferd"><i
+                        class="hover:scale-110 fa-brands fa-square-instagram fa-2xl"></i></a>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center w-3/4 md:w-2/6">
+            <div data-aos="fade-up" class="bridegroom-photo h-64 w-2/3 border-8"
+                 style="background-image: url('https://source.unsplash.com/240x360/?{bride}')"></div>
+            <div data-aos="zoom-in" class="mb-6">
+                <p class="bridegroom-name text-2xl font-semibold mt-8 mb-2">Ajeng Nur Ayu Herdianti</p>
+                <p class="sub-text text-xl">Putri dari</p>
+                <p class="sub-text text-xl">Bapak Kokoh Nur Sasongko</p>
+                <p class="sub-text text-xl">& Ibu Luluk Herdinawati</p>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="150" class="text-2xl mb-24">
+                <a href="https://www.instagram.com/rivferd"><i
+                        class="hover:scale-110 fa-brands fa-square-instagram fa-2xl"></i></a>
+            </div>
+        </div>
+        <svg class="main-wave relative top-4 w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#314248" fill-opacity="1"
+                  d="M0,64L48,90.7C96,117,192,171,288,170.7C384,171,480,117,576,90.7C672,64,768,64,864,80C960,96,1056,128,1152,128C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+
+    <div id="schedule" class="container p-8 bg-[#314248]">
+        <div class="rounded-2xl flex flex-col items-center text-center p-8 bg-[#FFFFFF99]">
+            <h1 data-aos="fade-right" class="bridegroom-name text-3xl font-semibold mb-8">Akad Nikah</h1>
+            <p data-aos="fade-left" class="mb-4">Jum'at 18 November 2023</p>
+            <p data-aos="fade-left">Sesi 1 : 10.00 s/d 11.30 WIB</p>
+            <p data-aos="fade-left">Sesi 2 : 14.00 WIB s/d selesai</p>
+            <p data-aos="fade-left" class="mt-4">Dsn Karang Nongko RT 01 RW 04,</p>
+            <p data-aos="fade-left">Ds. Cukur Gondong, Kec. Gruti, Kab. Pasuruan</p>
+            <a data-aos="zoom-in" href=""
+               class="mt-4 rounded p-1 w-fit text-white bg-[#314248] hover:bg-[#314248]/[0.9] px-2"><i
+                    class="fa-solid fa-location-dot fa-sm"></i> View Location</a>
+        </div>
+    </div>
+
+    <div id="countdown" class="container text-center text-white h-[50vh] lg:h-screen flex flex-col justify-end bg-cover"
+         style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url('https://source.unsplash.com/320x420/?{weeding}'); overflow: hidden">
+        <h1 data-aos="zoom-in" class="bridegroom-name text-lg md:text-xl lg:text-2xl font-semibold">Counting down to the
+            big day</h1>
+        <div data-aos="zoom-in-up" id="timer"
+             class="relative top-4 flex justify-around px-16 md:px-24 lg:px-64 sub-text">
+            <div class="timer-item">
+                <p id="days" class="text-xl font-semibold">00</p>
+                <small>Days</small>
+            </div>
+            <div class="mx-4">
+                <p>:</p>
+                <small></small>
+            </div>
+            <div class="timer-item">
+                <p id="hours" class="text-xl font-semibold">00</p>
+                <small>Hrs</small>
+            </div>
+            <div class="mx-4">
+                <p>:</p>
+                <small></small>
+            </div>
+            <div class="timer-item">
+                <p id="minutes" class="text-xl font-semibold">00</p>
+                <small>Mins</small>
+            </div>
+            <div class="mx-4">
+                <p>:</p>
+                <small></small>
+            </div>
+            <div class="timer-item">
+                <p id="seconds" class="text-xl font-semibold">00</p>
+                <small>Secs</small>
+            </div>
+        </div>
+        <svg class="wave-bot translate-y-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1"
+                  d="M0,64L48,90.7C96,117,192,171,288,170.7C384,171,480,117,576,90.7C672,64,768,64,864,80C960,96,1056,128,1152,128C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+
+    <div id="gift" class="container mb-16 flex flex-col justify-center items-center text-center mt-4">
+        <div data-aos="zoom-in"><i class="fa-solid fa-gift fa-2xl"></i></div>
+        <div data-aos="zoom-in" class="my-8 px-4">
+            <h1 class="bridegroom-name text-2xl font-semibold">Weeding Gift</h1>
+            <p>Bagi keluarga dan sahabat yang ingin mengirimkan hadiah, silakan mengirimkannya melalui tautan
+                berikut:</p>
+        </div>
+        <div data-aos="zoom-in" class="container flex justify-evenly">
+            <button class="bg-[#314248] p-4 rounded-xl text-white"><i class="fa-solid fa-gift fa-2xl"></i></button>
+            <button class="bg-[#314248] p-4 rounded-xl text-white"><i class="fa-solid fa-wallet fa-2xl"></i></button>
+        </div>
+    </div>
+
+    <div id="guestbook"
+         class="bg-[#314248] container flex flex-col p-8 md:px-24 lg:px-40 xl:px-80 2xl:px-96 text-white">
+        <div class="my-8">
+            <h1 class="bridegroom-name text-2xl">Guestbook</h1>
+            <p>Leave your message here</p>
+        </div>
+        <div class="h-px w-full bg-white mb-4"></div>
+        <div class="container flex flex-col justify-evenly items-center mt-12">
+            <input type="text" class="form-input text-black focus:outline-none" placeholder="Name">
+            <textarea class="form-input text-black focus:outline-none h-32 resize-none"
+                      placeholder="Write a message"></textarea>
+            <button class="bg-white text-black w-fit px-4 py-2 rounded">Send Wish</button>
+        </div>
+        <div id="message-list">
+            <!-- Insert data from db here -->
+        </div>
+    </div>
+</div>
+</body>
+</html>
